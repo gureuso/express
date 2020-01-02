@@ -7,6 +7,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var testRouter = require('./routes/test');
 
+var sequelize = require('./models').sequelize;
+sequelize.sync();
+var db = require('./models/index');
+
 var app = express();
 
 // view engine setup
@@ -29,8 +33,10 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  var status = (err.status || 500) * 100;
+  db.Test.create({'message': err.message, 'code': status});
   res.status(err.status || 500);
-  res.json({'message': err.message, 'code': err.status * 100});
+  res.json({'message': err.message, 'code': status});
 });
 
 app.listen(3000, () => {

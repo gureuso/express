@@ -1,1 +1,15 @@
-main
+<!DOCTYPE html>
+<head>
+  <title>Index</title>
+</head>
+<body>
+  <table>
+    <% tests.forEach(function(test){ %>
+      <tr>
+        <td><%= test.id %></td>
+        <td><%= test.message %></td>
+        <td><%= test.code %></td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
