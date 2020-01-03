@@ -1,3 +1,5 @@
+require('app-module-path').addPath(__dirname);
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,9 +9,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var testRouter = require('./routes/test');
 
-var sequelize = require('./models').sequelize;
-sequelize.sync();
-var db = require('./models/index');
+var db = require('./models');
+db.sequelize.sync();
 
 var app = express();
 

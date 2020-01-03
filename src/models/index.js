@@ -1,7 +1,7 @@
 const path = require('path');
 const Sequelize = require('sequelize');
 
-const config = require(path.join(__dirname, '..', 'config.json'))["production"];
+const config = require('config/db.json')["production"];
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
