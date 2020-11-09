@@ -1,0 +1,16 @@
+{
+  "product": {
+    "username": "root",
+    "password": "/cF6:t9vFLCAc5",
+    "database": "express",
+    "host": "gureuso.me",
+    "dialect": "mysql"
+  },
+  "dev": {
+    "username": "root",
+    "password": "asdf1234",
+    "database": "express",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
